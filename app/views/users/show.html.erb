@@ -7,7 +7,7 @@
 </div>
 
 <h1>Books</h1>
-<% @books.each do |book| %>
+<% @user.books.each do |book| %>
   <div>
     <%= link_to book.title, book_path(book.id) %>
     <%= book.body %>
