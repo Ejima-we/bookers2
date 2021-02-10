@@ -1,13 +1,13 @@
 <div class="row pt-3">
-  <div class="col-3">
+  <div class="col-md-3">
 
     <%= render "users/user", user: @user %>
 
     <%= render "books/new", book: @book_new %>
 
   </div>
-  <div class="col-8 offset-1">
-    <h1>book detail</h1>
+  <div class="col-md-8 offset-md-1">
+    <h1>Book detail</h1>
     <table class="table">
       <tr>
         <td><%= link_to user_path(@book.user.id) do %>
