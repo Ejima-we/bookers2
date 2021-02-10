@@ -1,17 +1,22 @@
-<h1>User info</h1>
-<%= form_with model:@user, local:true do |f| %>
-  <% if @user.errors.any? %>
-    <%= pluralize(@user.errors.count, "error") %> prohidited this product from being saved:
-    <% @user.errors.full_messages.each do |message| %>
-      <%= message %>
+<div class="row">
+  <div class="mx-auto pt-3">
+    <h1>User info</h1>
+    <%= form_with model:@user, local:true do |f| %>
+      <% if @user.errors.any? %>
+      <h4 class="error"><%= pluralize(@user.errors.count, "error") %> prohidited this product from being saved:</h4>
+      <ul class="error pl-5">
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     <% end %>
-  <% end %>
-  <label for="inputName">Name</label>
-  <%= f.text_field :name, autofocus: true, id: "inputName" %>
-  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-  <label for="inputImage">ProfileImage</label>
-  <%= f.attachment_field :profile_image, placeholder: "Image" %>
-  <label for="inputIntroduction">Introduction</label>
-  <%= f.text_area :introduction %>
-  <%= f.submit "Update User" %>
-<% end %>
+  <p>Name</p>
+  <%= f.text_field :name, autofocus: true, class: "field mb-4" %>
+  <p>Image</p>
+  <%= f.attachment_field :profile_image, placeholder: "Image", class: "mb-4" %>
+  <p>Introduction</p>
+  <%= f.text_area :introduction, class: "field mb-3" %>
+  <%= f.submit "Update User", class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+</div>
