@@ -1,6 +1,8 @@
   <% if book.errors.any? %>
-    <%= book.errors.count %> prohidited this product from being saved:
-    <% book.errors.full_messages.each do |message| %>
-      <%= message %>
-    <% end %>
+    <h4 class="error"><%= pluralize(book.errors.count, "error") %> prohidited this product from being saved:</h4>
+    <ul class="error pl-5">
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>

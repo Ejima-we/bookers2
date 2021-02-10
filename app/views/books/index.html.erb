@@ -1,5 +1,20 @@
-<%= render "books/error", book: @book %>
-
-<%= render "users/user", user: @user %>
-<%= render "books/new", book: @book %>
-<%= render "books/list", books: @books %>
+<div class="row">
+  <div class="pt-1">
+    
+    <%= render "books/error", book: @book %>
+    
+  </div>
+</div>
+<div class="row pt-3">
+  <div class="col-3">
+    
+    <%= render "users/user", user: @user %>
+    
+    <%= render "books/new", book: @book %>
+    
+  </div>
+  <div class="col-8 offset-1">
+    
+    <%= render "books/list", books: @books %>
+  </div>
+</div>
