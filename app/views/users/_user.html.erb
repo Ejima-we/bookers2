@@ -1,11 +1,28 @@
-<div class="profile-container">
-  <h3 class="profile-name"><%= user.name %></h3>
-  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: "jpeg", fallback: "no_image.jpg" %>
-  <% if user.id == current_user.id %>
-    <p>
-      <%= link_to edit_user_path(current_user.id) do %>
-        <i class="fas fa-user-cog"></i>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <h2>User info</h2>
+
+      <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: "jpeg", fallback: "no_image.jpg" %>
+      <table class="table mt-3">
+        <tr>
+          <td>name</td>
+          <td><%= user.name %></td>
+        </tr>
+        <tr>
+          <td>introduction</td>
+          <td><%= user.introduction %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto">
+      <% if user.id == current_user.id %>
+        <%= link_to edit_user_path(current_user.id) do %>
+          <i class="fas fa-user-cog btn btn-block btn-outline-secondary px-5"></i>
+        <% end %>
       <% end %>
-    </p>
-  <% end %>
+    </div>
+  </div>
 </div>
