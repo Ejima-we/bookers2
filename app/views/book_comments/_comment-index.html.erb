@@ -1,0 +1,20 @@
+<table>
+  <% book.book_comments.each do |book_comment| %>
+  <div class="comment_<%= book_comment.id %>">
+    <tr>
+      <td>
+        <p><%= image_tag("no_image.jpg") %></p>
+        <%= link_to "#{book_comment.user.name}", user_path(book_comment.user_id) %>
+      </td>
+      <td>
+        <%= book_comment.comment %>
+      </td>
+      <td>
+        <% if current_user.id == book_comment.user_id %>
+          <%= link_to "Destroy", book_book_comment_path(book_comment.book_id, book_comment.id), method: :delete %>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+  </div>
+</table>
