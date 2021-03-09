@@ -1,1 +1,2 @@
-$(".comment-index").html("<%= j(render partial: "book-comments/comment-index", locals: {book: @book, comment: @comment})%>");
+$(".comment-index-<%= @book %>").html("<%= j(render partial: "book_comments/comment-index", locals: {book: @book, comment: @comment})%>");
+$("textarea").val("");
